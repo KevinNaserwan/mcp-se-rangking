@@ -9,5 +9,10 @@ services:
     environment:
       - DATA_API_TOKEN=${DATA_API_TOKEN:-}
       - PROJECT_API_TOKEN=${PROJECT_API_TOKEN:-}
+      - HOST=${HOST:-0.0.0.0}
+      - PORT=${PORT:-5000}
     stdin_open: true
     tty: true
+    command: ["node", "dist/http-server.js"]
+    ports:
+      - "${PORT:-5000}:${PORT:-5000}"
